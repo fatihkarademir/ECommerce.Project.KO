@@ -1,0 +1,48 @@
+﻿@model ProductListModel
+@{
+    ViewData["Title"] = "ListProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ListProducts</h1>
+<hr />
+@if (Model.Products.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td style="width:30px;">Id</td>
+                <td style="width:100px;">Image</td>
+                <td>Name</td>
+                <td style="width:120px;">Price</td>
+                <td style="width:150px;"></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td><img src="~/img/@product.ImageUrl" width="80" /></td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Price</td>
+                    <td>
+                        @*<a class="btn btn-primary btn-sm mr-2" href="/admin/products/@product.Id">Edit</a>*@
+                        <a class="btn btn-primary btn-sm mr-2" asp-controller="Admin" asp-action="EditProduct" asp-route-id="@product.ProductId">Edit</a>
+                        <form action="/admin/DeleteProduct" method="post" style="display:inline;">
+                            <input type="hidden" name="productId" value="@product.ProductId" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Products</h4>
+    </div>
+}

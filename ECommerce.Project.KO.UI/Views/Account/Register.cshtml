@@ -1,0 +1,58 @@
+﻿@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<h1>Register User</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="danger-alert" style="color:red;margin-bottom:10px;">
+                @foreach (var item in (List<string>)ViewBag.ErrorMessage)
+                {
+                    <p> @item</p>
+                }
+            </div>
+
+        }
+        <form asp-controller="Account" asp-action="Register" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>           
+            <div class="form-group row">
+                <label asp-for="UserName" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="UserName" value="@Model.UserName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Email" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Email" value="@Model.Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Password" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input id="editor" asp-for="Password" value="@Model.Password" class="form-control" />
+                    @*<span asp-validation-for="Password" class="text-danger"></span>*@
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="RePassword" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="RePassword" value="@Model.RePassword" class="form-control" />
+                    <span asp-validation-for="RePassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <div class="col-md-10">
+                    <button type="submit" value="Save User" class="btn btn-primary">Save User</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

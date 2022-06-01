@@ -1,0 +1,44 @@
+﻿@model CategoryListModel
+
+@{
+    ViewData["Title"] = "ListCategories";
+}
+
+<h1>List Categories</h1>
+
+@if (Model.Categories.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td style="width:30px;">Id</td>
+                <td>Name</td>
+                <td style="width:75px;"></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@category.CategoryName</td>
+                    <td>
+                        <a class="btn btn-primary mr-2" asp-controller="Admin" asp-action="EditCategory" asp-route-catId="@category.CategoryId">Edit</a>
+                        @*<form action="/admin/DeleteCategory" method="post" style="display:inline;">
+                                <input type="hidden" name="productId" value="@category.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>*@
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Categories</h4>
+    </div>
+}
+
