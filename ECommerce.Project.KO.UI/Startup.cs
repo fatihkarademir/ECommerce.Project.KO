@@ -120,6 +120,7 @@ namespace ECommerce.Project.KO.UI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //
             }
             else
             {
