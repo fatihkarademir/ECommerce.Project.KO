@@ -3,7 +3,7 @@
 Merhaba,
 
 İstenilenler --> Katmanlı Mimari,RepositoryDesignPattern, EntityFramework Core, Microsoft SQL Server
-Gerçekleştirilenler --> Katmanlı Mimari, RepositoryDesignPattern,EntityFramework Core, Microsoft SQL Server , Redis (Basket için kullanıldı diğer kısımlar EF Core)
+Gerçekleştirilenler --> Katmanlı Mimari, RepositoryDesignPattern,EntityFramework Core, Microsoft SQL Server , Redis (Basket için kullanıldı diğer MSSql)
 
 Teknoloji dışında sistemde gerçekleşmesi istenen kısımlar şunlardı :
 
