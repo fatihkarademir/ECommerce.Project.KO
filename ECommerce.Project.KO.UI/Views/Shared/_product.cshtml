@@ -1,0 +1,19 @@
+﻿@model ProductDto
+
+<div class="col-md-4 my-2">
+    <div class="card">
+        <img src="~/img/@Model.ImageUrl" alt="@Model.ProductName" style="height:400px;" />
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">@Model.ProductName</a>
+            </h4>
+            <small class="text-muted">
+                <i class="fas fa-lira-sign"></i>@Model.Price
+            </small>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-controller="Shop" asp-action="Details" asp-route-id="@Model.ProductId" class="btn btn-outline-primary btn-sm">Details</a>
+            <a asp-controller="Basket" asp-action="SaveOrUpdateBasket" asp-route-productId="@Model.ProductId"  class="btn btn-outline-primary btn-sm ml-3">Add to Cart</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model ResponseDto<BasketDto>
+@{
+    ViewData["Title"] = "GetBasket";
+}
+
+<h1>Your Basket</h1>
+
+<div class="row">
+    @*<div class="col-md-3">
+            @await Component.InvokeAsync("CategoryList")
+        </div>*@
+    <div class="col-md-9">
+
+        <div class="row">
+            @if (Model.IsSuccesful)
+            {
+                @foreach (var p in Model.Data.basketItems)
+                {                    
+
+                    <div class="col-md-4 my-2">
+                        <div class="card">
+                            @*<img src="~/img/@p.Image" alt="@Model.ProductName" style="height:400px;" />*@
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">@p.ProductName</a>
+                                </h4>
+                                <small class="text-muted">
+                                    <i class="fas fa-lira-sign"></i>@p.Price
+                                </small>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a asp-controller="Shop" asp-action="Details" asp-route-id="@p.ProductId" class="btn btn-outline-primary btn-sm">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>@Model.Error.Errors.FirstOrDefault()</p>
+            }
+
+        </div>
+        @*<div page-model="@Model.PageInfo"></div>*@
+    </div>
+</div>

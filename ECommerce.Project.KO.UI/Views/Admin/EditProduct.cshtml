@@ -1,0 +1,80 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "EditProduct";
+}
+
+<h1>Edit Product</h1>
+<hr />
+
+<form asp-controller="Admin" asp-action="EditProduct" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-8">
+
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group row">
+                <label asp-for="Name" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" value="@Model.Name" class="form-control" />
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label asp-for="ImageUrl" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input type="hidden" name="ImageUrl" value="@Model.ImageUrl" />
+                    <img src="~/img/@Model.ImageUrl" width="80" />
+                    @*<input asp-for="ImageUrl" value="@Model.ImageUrl" class="form-control" />*@
+                    <input type="file" name="file" id="file" value="" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Description" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Description" value="@Model.Description" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Price" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Price" value="@Model.Price" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <div class="col-md-10">
+                    <button type="submit" value="Save Product" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            @*@foreach (var category in (List<CategoryDto>)ViewBag.Categories)
+            {
+                var IsChecked = "";
+                @if (Model.SelectedCategories.Any(i => i.Id == category.CategoryId))
+                {
+                    IsChecked = "checked";
+                    <input type="hidden" name="SelectedCategories[@counter].Id" value="@category.CategoryId" />
+                    <input type="hidden" name="SelectedCategories[@counter].Name" value="@category.CategoryName" />
+
+                    counter++;
+
+                }
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input"
+                                   name="categoryIds"
+                                   value="@category.CategoryId"
+                                   id="category@(category.CategoryId)"
+                                   @IsChecked>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" for="category@(category.Id)" value="@category.Name">
+                </div>
+
+            }*@
+        </div>
+    </div>
+</form>

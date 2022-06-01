@@ -1,0 +1,66 @@
+﻿@model ProductDetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="~/img/@Model.Product.ImageUrl" alt="@Model.Product.ProductName" class="img-fluid" />
+    </div>
+    <div class="col-md-9">
+        <h1 class="mb-3">
+            @Model.Product.ProductName
+        </h1>
+        <hr />
+
+        <a href="#" class="btn btn-link p-0 mb-3">@Model.Category.CategoryName</a>
+
+
+        <div class="mb-3">
+            <h4 class="text-primary mb-3">
+                @Model.Product.Price TL
+            </h4>
+            <a asp-controller="Basket" asp-action="SaveOrUpdateBasket" asp-route-productId="@Model.ProductId" class ="btn btn-primary btn-lg">Add To Cart</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p class="p-3">
+            <h5>Description</h5>
+            @Html.Raw(Model.Product.Description)
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <h3>Kullanıcı yorumları</h3>
+    <hr />
+    @foreach (var item in Model.AllComments)
+    {
+        <div class="col-md-12">
+            <p>
+                @string.Format(item.UserDto.UserName + "  :  " + item.CommentDescription)                    
+            </p>
+
+        </div>
+    }
+</div>
+
+<form asp-controller="Comment" asp-action="AddComment" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row">
+        <label class="col-form-label"></label>
+        <div class="col-md-10">
+            <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+            <input id="editor" asp-for="@Model.AddedComment.CommentDescription" value="" class="form-control" />
+            <button type="submit" value="" class="btn btn-primary">Yorum yap</button>
+
+        </div>
+    </div>
+
+</form>

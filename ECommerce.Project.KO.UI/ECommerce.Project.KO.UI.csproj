@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.5.61" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Project.KO.Business\ECommerce.Project.KO.Business.csproj" />
+    <ProjectReference Include="..\ECommerce.Project.KO.DataAccess\ECommerce.Project.KO.DataAccess.csproj" />
+    <ProjectReference Include="..\ECommerce.Project.KO.Entites\ECommerce.Project.KO.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,48 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login User</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="danger-alert" style="color:red;margin-bottom:10px;">
+                @foreach (var item in (List<string>)ViewBag.ErrorMessage)
+                {
+                    <p> @item</p>
+                }
+            </div>
+
+        }
+        @* asp-route-returnUrl="@Model.ReturnUrl" *@
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
+            <div class="form-group row">
+                <label asp-for="EMail" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EMail" value="@Model.EMail" class="form-control" />
+                    <span asp-validation-for="EMail" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Password" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input id="editor" asp-for="Password" value="@Model.Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <div class="col-md-10">
+                    <button type="submit" value="Login User" class="btn btn-primary">Login User</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
