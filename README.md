@@ -48,16 +48,9 @@ Proje süresince harici olarak kendim Docker Engine üzerinde veritabanını ve 
 Entity - Dto geçişini sağlayarak Entitylerimi sadece backend kısımda kalmasını sağlayıp UI da Dto lar ve Modeller üzerinden gittim.
 
 Eksiklerim--
-
-.Net 6.0 ile geliştirilmesi gerektiği belirtilmişti. .Net 5.0 ile gelitşrimeyi tamamladım. 6.0 da daha önce herhangi geliştirme yapmamış olmamdan kaynaklı
-bitiremeyeceğim bir proje olacaktı en azından bu kadar gelemeyebilirdim. Bu sebeple 5.0 ile ilerledim.
-(.Net Core ile iş hayatımda çalışmadım kendi bireysel çalışmalarım ile öğrendim. 5.0 ve öncesi için hep çalışma yapmıştım.)
  
  Order tarafında da Basket ile başladım basketin ekleme ve listeleme kısımlarını kodladım. Order ve OrderItem entitylerini da kodlamaya başlarken oluşturdum.
- Order tarafına da devam edebilseydim bir tane fakePaymentAPI oluşturup payment sonucunu true döndüren diğer taraftan da Order oluştuğunda Order ve 
- OrderItem tablolarına kayıt atıp Redisten de basket i temizleyip bu şekilde bir akış ile devam edecektim.
- 
- İyi çalışmalar :)
+
  
 
 
